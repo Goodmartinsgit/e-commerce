@@ -1,19 +1,74 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
-    return ( 
-        <div className=" flex justify-between items-center py-4 px-8 w-full">
-            <div className="h-[5rem] w-[5rem] bg-black text-2xl text-white rounded-full flex justify-center items-center p-2">
-                <NavLink to={"/"}>Logo</NavLink>                
-            </div>
-            <div className="flex justify-center items-center gap-16 pr-20 text-xl font-semibold">
-            <NavLink to={"/"} className="link">Home</NavLink>           
-            <NavLink to={"/about"} className="link">About</NavLink>            
-            <NavLink to={"/contact"} className="link">Contact</NavLink>
-            </div>
-            
-        </div>
-     );
-}
- 
+  const navLinks = [
+    {
+      id: 1,
+      name: "About",
+      path: "/about",
+    },
+    {
+      id: 2,
+      name: "Contact",
+      path: "/contact",
+    },
+    {
+      id: 3,
+      name: "New Arrival",
+      path: "/newArrival",
+    },
+    {
+      id: 4,
+      name: "Men",
+      path: "/menCloths",
+    },
+    {
+      id: 5,
+      name: "Women",
+      path: "/womenCloths",
+    },
+    {
+      id: 6,
+      name: "Children",
+      path: "/childrenCloths",
+    },
+  ];
+  return (
+    <div className="bg-primary flex justify-between items-center p-6 w-full text-white">
+      <Link to={"/"} className="logo text-3xl font-bold font-serif italic">
+        Granduer
+      </Link>
+
+      <div className=" links flex justify-center items-center gap-4 pr-20 text-xl font-normal">
+        {navLinks.map((item) => (
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "px-6 py-2 border border-white rounded-full bg-white text-black transition-colors"
+                : "bg-none text-white"
+            }
+            key={item.id}
+            to={item.path}
+          >
+            {item.name}
+          </NavLink>
+        ))}
+      </div>
+      <div className="Cartsearch flex gap-4">
+        <span>Search</span>
+        <NavLink
+          className={({ isActive }) =>
+            isActive
+              ? "px-6 py-2 border border-white rounded-full bg-white text-black transition-colors"
+              : ""
+          }
+          to={"/cart"}
+        >
+          Cart
+        </NavLink>
+      </div>
+    </div>
+  );
+};
+
 export default Navbar;

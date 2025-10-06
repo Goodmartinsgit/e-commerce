@@ -6,8 +6,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
+import NewArrival from "./pages/NewArrival.jsx";
+import MensCloth from "./pages/MensCloth.jsx";
+import WomensCloth from "./pages/WomensCloth.jsx";
+import Children from "./pages/Children.jsx";
 
 const router = createBrowserRouter([
+  
   {
     element: <App />,
     path: "/",
@@ -24,12 +29,28 @@ const router = createBrowserRouter([
         element: <Contact/>,
         path: "/contact"
       },
+      {
+        element: <NewArrival/>,
+        path: "/newArrival"
+      },
+      {
+        element: <MensCloth/>,
+        path: "/menCloths"
+      },
+      {
+        element: <WomensCloth/>,
+        path: "/womenCloths"
+      },
+      {
+        element: <Children/>,
+        path: "/childrenCloths"
+      },
     ],
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   </StrictMode>
 );

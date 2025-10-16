@@ -5,6 +5,7 @@ const About = () => {
     <Layout>
       <div className="w-full h-screen bg-blue-500 flex justify-center items-center">
         <p>Welcome to About</p>
+        {/* <Carousel/> */}
       </div>
     </Layout>
   );

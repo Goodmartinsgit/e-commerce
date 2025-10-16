@@ -10,6 +10,13 @@ import NewArrival from "./pages/NewArrival.jsx";
 import MensCloth from "./pages/MensCloth.jsx";
 import WomensCloth from "./pages/WomensCloth.jsx";
 import Children from "./pages/Children.jsx";
+import { ProductProvider } from "./context/ProductContext.jsx";
+import Home22 from "./pages/Home22.jsx";
+import SingleProduct from "./pages/SingleProduct.jsx";
+import UserLoginPage from "./pages/Auth/UserLoginPage.jsx";
+import Cart from "./pages/Cart.jsx";
+import BestSellersPage from "./pages/BestSellersPage.jsx";
+
 
 const router = createBrowserRouter([
   
@@ -45,12 +52,30 @@ const router = createBrowserRouter([
         element: <Children/>,
         path: "/childrenCloths"
       },
+      {
+        element: <Cart/>,
+        path: "/cart"
+      },   
+      {
+        element: <UserLoginPage/>,
+        path: "/userlogin"
+      },
+      {
+        element: <SingleProduct/>,
+        path: "/product/:id"
+      },
+      {
+        element: <BestSellersPage/>,
+        path: "/bestSellers"
+      },
     ],
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
+  <ProductProvider>
   <StrictMode>
     <RouterProvider router={router} />
   </StrictMode>
+  </ProductProvider>
 );
